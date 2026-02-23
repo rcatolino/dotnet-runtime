@@ -264,7 +264,7 @@ BOOL SEHInitializeSignals(CorUnix::CPalThread *pthrCurrent, DWORD flags)
         // }
 #endif // __APPLE__
 
-        handle_signal(INJECT_ACTIVATION_SIGNAL, inject_activation_handler, &g_previous_activation);
+        handle_signal(INJECT_ACTIVATION_SIGNAL, inject_activation_handler, &g_previous_activation, SA_ONSTACK);
         g_registered_activation_handler = true;
     }
 #endif
